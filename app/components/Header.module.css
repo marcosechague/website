@@ -71,6 +71,7 @@
   color: var(--primary);
 }
 
+/* Language selector styles */
 .languageSelector {
   position: fixed;
   top: 90px;

@@ -33,6 +33,14 @@ export default function Header() {
           <ul className={styles.navLinks}>
             <li><a href="#home">{translate('HOME', 'INICIO')}</a></li>
             <li><a href="#about">{translate('ABOUT', 'ACERCA')}</a></li>
+            <li>        {/* DevZone Link */}
+        <a 
+          href="/devzone" 
+          className={styles.navLink}
+          title={language === 'en' ? 'Visit DevZone - Technical Playground' : 'Visitar DevZone - Playground Técnico'}
+        >
+          DevZone
+        </a></li>
             <li><a href="#experience">{translate('EXPERIENCE', 'EXPERIENCIA')}</a></li>
             <li><a href="#projects">{translate('PROJECTS', 'PROYECTOS')}</a></li>
             <li><a href="#contact">{translate('CONTACT', 'CONTACTO')}</a></li>

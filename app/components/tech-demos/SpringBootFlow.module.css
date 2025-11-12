@@ -1,0 +1,390 @@
+.container {
+  padding: 2rem;
+  background: var(--bg-dark);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header h3 {
+  color: var(--primary);
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.header p {
+  color: var(--text-secondary);
+  margin: 0 0 1.5rem 0;
+  font-size: 0.95rem;
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.button {
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-family: 'Courier New', monospace;
+}
+
+.button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.playButton {
+  background: var(--primary);
+  color: var(--bg-dark);
+  border-color: var(--primary);
+}
+
+.playButton:hover:not(:disabled) {
+  background: var(--primary);
+  box-shadow: 0 4px 15px rgba(0, 255, 136, 0.4);
+}
+
+.playButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: var(--primary);
+}
+
+.resetButton:hover:not(:disabled) {
+  border-color: #EF4444;
+  color: #EF4444;
+}
+
+.detailsButton:hover:not(:disabled) {
+  border-color: var(--secondary);
+  color: var(--secondary);
+}
+
+.flowContainer {
+  position: relative;
+  height: 400px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin: 2rem 0;
+  overflow: hidden;
+}
+
+.step {
+  position: absolute;
+  width: 150px;
+  padding: 1rem;
+  background: var(--bg-dark);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.step.activeStep {
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  z-index: 20;
+}
+
+.stepIcon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.stepName {
+  font-weight: 700;
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+  font-family: 'Courier New', monospace;
+}
+
+.stepDescription {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  line-height: 1.3;
+}
+
+.stepDetails {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--bg-card);
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  z-index: 30;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.detailItem {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.25rem;
+  text-align: left;
+  line-height: 1.4;
+}
+
+.packet {
+  position: absolute;
+  width: 80px;
+  height: 40px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  z-index: 30;
+  border: 2px solid;
+  transition: all 0.3s ease;
+  font-family: 'Courier New', monospace;
+}
+
+.requestPacket {
+  background: linear-gradient(135deg, #3B82F6, #1E40AF);
+  color: white;
+  border-color: #60A5FA;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+}
+
+.responsePacket {
+  background: linear-gradient(135deg, #10B981, #047857);
+  color: white;
+  border-color: #34D399;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+}
+
+.connectionLines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.connectionLine {
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.connectionLines:hover .connectionLine {
+  opacity: 1;
+}
+
+.codeContainer {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin: 2rem 0;
+  overflow: hidden;
+}
+
+.codeHeader {
+  background: var(--bg-dark);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.codeHeader span:first-child {
+  color: var(--primary);
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+}
+
+.currentStepName {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  background: var(--bg-card);
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  font-family: 'Courier New', monospace;
+}
+
+.codeBlock {
+  padding: 1.5rem;
+  margin: 0;
+  background: var(--bg-dark);
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  overflow-x: auto;
+  font-family: 'Courier New', monospace;
+}
+
+.codeBlock code {
+  color: var(--text-primary);
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.metric {
+  background: var(--bg-card);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  text-align: center;
+}
+
+.metricLabel {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.metricValue {
+  display: block;
+  font-size: 1rem;
+  color: var(--text-primary);
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+}
+
+.metricValue.processing {
+  color: var(--primary);
+  animation: pulse 1.5s infinite;
+}
+
+.metricValue.idle {
+  color: var(--text-secondary);
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .flowContainer {
+    height: 300px;
+  }
+  
+  .step {
+    width: 120px;
+    padding: 0.75rem;
+    transform: scale(0.8);
+  }
+  
+  .step.activeStep {
+    transform: scale(0.9);
+  }
+  
+  .stepIcon {
+    font-size: 1.5rem;
+  }
+  
+  .stepName {
+    font-size: 0.75rem;
+  }
+  
+  .stepDescription {
+    font-size: 0.65rem;
+  }
+  
+  .packet {
+    width: 60px;
+    height: 30px;
+    font-size: 0.6rem;
+  }
+  
+  .controls {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .button {
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  .codeBlock {
+    font-size: 0.75rem;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .flowContainer {
+    height: 250px;
+  }
+  
+  .step {
+    width: 100px;
+    padding: 0.5rem;
+    transform: scale(0.7);
+  }
+  
+  .step.activeStep {
+    transform: scale(0.8);
+  }
+  
+  .metrics {
+    grid-template-columns: 1fr;
+  }
+  
+  .header h3 {
+    font-size: 1.2rem;
+  }
+  
+  .header p {
+    font-size: 0.85rem;
+  }
+}

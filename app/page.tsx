@@ -1,5 +1,8 @@
+"use client";
+
 import Header from './components/Header'
 import Hero from './components/Hero'
+import DevZoneButton from './components/DevZoneButton'
 
 export default function Home() {
   return (
@@ -152,6 +155,9 @@ export default function Home() {
           © 2025 Marcos Echague. Built with Next.js & passion for clean code.
         </p>
       </footer>
+      
+      {/* DevZone Button */}
+      <DevZoneButton />
     </main>
   )
 }

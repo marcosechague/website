@@ -1,0 +1,278 @@
+.databaseDemo {
+  padding: 2rem;
+  background: var(--bg-card);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header h3 {
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.header p {
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.operationsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.operationButton {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  background: var(--bg-dark);
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.operationButton:hover {
+  border-color: var(--operation-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.operationButton.active {
+  background: var(--operation-color);
+  border-color: var(--operation-color);
+  color: white;
+  box-shadow: 0 0 20px var(--operation-color);
+}
+
+.operationIcon {
+  font-size: 1.2rem;
+}
+
+.operationName {
+  color: var(--text-primary);
+}
+
+.operationButton.active .operationName {
+  color: white;
+}
+
+.sqlContainer {
+  background: var(--bg-dark);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  margin-bottom: 1.5rem;
+}
+
+.sqlHeader {
+  background: rgba(0, 255, 136, 0.1);
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.sqlQuery {
+  padding: 1rem;
+  font-family: 'Courier New', monospace;
+  color: var(--text-primary);
+  font-size: 1rem;
+  background: var(--bg-dark);
+  border-bottom: 1px solid var(--border);
+  word-break: break-all;
+}
+
+.sqlDescription {
+  padding: 0.75rem 1rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.executeContainer {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.executeButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 2rem;
+  background: var(--primary);
+  color: var(--bg-dark);
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.executeButton:hover:not(:disabled) {
+  background: var(--secondary);
+  transform: translateY(-2px);
+}
+
+.executeButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid var(--bg-dark);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.resetButton {
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.resetButton:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.tableContainer {
+  background: var(--bg-dark);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.tableHeader {
+  background: rgba(0, 255, 136, 0.1);
+  padding: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.tableHeader h4 {
+  margin: 0;
+  color: var(--primary);
+  font-size: 1.1rem;
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+}
+
+.tableRow {
+  display: grid;
+  grid-template-columns: 60px 1fr 1fr 100px;
+  gap: 1rem;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border);
+  transition: background-color 0.2s;
+}
+
+.tableRow:hover:not(.headerRow) {
+  background: rgba(0, 255, 136, 0.05);
+}
+
+.tableRow:last-child {
+  border-bottom: none;
+}
+
+.headerRow {
+  background: rgba(0, 255, 136, 0.1);
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.tableCell {
+  display: flex;
+  align-items: center;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.status {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status.active {
+  background: rgba(76, 175, 80, 0.2);
+  color: #4CAF50;
+}
+
+.status.inactive {
+  background: rgba(244, 67, 54, 0.2);
+  color: #F44336;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .databaseDemo {
+    padding: 1rem;
+  }
+  
+  .operationsContainer {
+    grid-template-columns: 1fr;
+  }
+  
+  .executeContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .tableRow {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    text-align: left;
+  }
+  
+  .tableCell {
+    padding: 0.25rem 0;
+  }
+  
+  .headerRow {
+    display: none;
+  }
+  
+  .tableCell::before {
+    content: attr(data-label) ': ';
+    font-weight: 600;
+    color: var(--primary);
+    display: inline-block;
+    min-width: 80px;
+  }
+}

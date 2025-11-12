@@ -1,0 +1,150 @@
+/* DevZone Button Component */
+
+.devZoneButtonContainer {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+}
+
+.devZoneButton {
+  text-decoration: none;
+  display: block;
+}
+
+.buttonContent {
+  position: relative;
+  background: linear-gradient(135deg, #00ff88, #00d4ff);
+  padding: 16px 32px;
+  border-radius: 50px;
+  box-shadow: 
+    0 8px 32px rgba(0, 255, 136, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  overflow: visible;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.buttonText {
+  color: #0a0a0a;
+  font-weight: 700;
+  font-size: 16px;
+  text-shadow: none;
+  white-space: nowrap;
+}
+
+.arrow {
+  color: #0a0a0a;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Floating Elements */
+.floatingElement {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.9);
+  color: #0a0a0a;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-family: 'Monaco', 'Menlo', monospace;
+  font-size: 12px;
+  font-weight: bold;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  animation: float 4s ease-in-out infinite;
+  z-index: 10;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.codeSymbol1 {
+  top: -15px;
+  left: -20px;
+  animation-delay: 0s;
+}
+
+.codeSymbol2 {
+  top: -20px;
+  right: -25px;
+  animation-delay: 1s;
+}
+
+.codeSymbol3 {
+  bottom: -15px;
+  left: -15px;
+  animation-delay: 2s;
+}
+
+.codeSymbol4 {
+  bottom: -20px;
+  right: -20px;
+  animation-delay: 1.5s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-10px) rotate(3deg);
+    opacity: 1;
+  }
+}
+
+/* Hover Effects */
+.buttonContent:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 12px 40px rgba(0, 255, 136, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+.buttonContent:hover .floatingElement {
+  animation-play-state: paused;
+  transform: translateY(-5px) scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .devZoneButtonContainer {
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .buttonContent {
+    padding: 14px 24px;
+  }
+  
+  .buttonText {
+    font-size: 14px;
+  }
+  
+  .floatingElement {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .devZoneButtonContainer {
+    bottom: 15px;
+    right: 15px;
+  }
+  
+  .buttonContent {
+    padding: 12px 20px;
+  }
+  
+  .buttonText {
+    font-size: 13px;
+  }
+  
+  .arrow {
+    font-size: 16px;
+  }
+}

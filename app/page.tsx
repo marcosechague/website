@@ -3,6 +3,7 @@
 import Header from './components/Header'
 import Hero from './components/Hero'
 import DevZoneButton from './components/DevZoneButton'
+import Experience from './components/Experience'
 
 export default function Home() {
   return (
@@ -80,27 +81,7 @@ export default function Home() {
         </p>
       </section>
 
-      <section id="experience" style={{
-        maxWidth: '1400px',
-        margin: '0 auto',
-        padding: '6rem 2rem',
-        minHeight: '100vh',
-        background: 'rgba(20, 27, 61, 0.3)'
-      }}>
-        <div style={{marginBottom: '4rem'}}>
-          <p style={{color: 'var(--primary)', fontSize: '0.9rem', marginBottom: '0.5rem', fontFamily: 'Courier New, monospace'}}>
-            // Career Path
-          </p>
-          <h2 style={{fontSize: '2.5rem', marginBottom: '1rem'}}>
-            <span style={{color: 'var(--primary)'}}>{'{ '}</span>
-            Experience
-            <span style={{color: 'var(--primary)'}}>{' }'}</span>
-          </h2>
-        </div>
-        <p style={{color: 'var(--text-secondary)', lineHeight: '1.8', maxWidth: '800px'}}>
-          Banking, Healthcare, E-commerce, and AI Integration projects...
-        </p>
-      </section>
+      <Experience />
 
       <section id="projects" style={{
         maxWidth: '1400px',

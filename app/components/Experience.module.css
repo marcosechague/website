@@ -1,0 +1,260 @@
+.experience {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+  min-height: 100vh;
+  background: rgba(20, 27, 61, 0.3);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.subtitle {
+  color: var(--primary);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  font-family: 'Courier New', monospace;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.bracket {
+  color: var(--primary);
+}
+
+.timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.timelineItem {
+  display: flex;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.timelineMarker {
+  flex-shrink: 0;
+  width: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 2rem;
+}
+
+.marker {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  border: 3px solid var(--bg-dark);
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+  z-index: 2;
+  position: relative;
+}
+
+.line {
+  width: 2px;
+  flex: 1;
+  background: linear-gradient(to bottom, var(--primary), transparent);
+  margin-top: 0.5rem;
+  min-height: 100px;
+}
+
+.timelineItem:last-child .line {
+  display: none;
+}
+
+.content {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem;
+  flex: 1;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.content:hover {
+  border-color: var(--primary);
+  box-shadow: 0 8px 30px rgba(0, 255, 136, 0.15);
+  transform: translateY(-5px);
+}
+
+.header {
+  margin-bottom: 1.5rem;
+}
+
+.position {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
+}
+
+.company {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 0 0 1rem 0;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.period {
+  font-weight: 600;
+}
+
+.type {
+  padding: 0.25rem 0.75rem;
+  background: rgba(0, 255, 136, 0.1);
+  color: var(--primary);
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.location {
+  font-style: italic;
+}
+
+.description {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.projects {
+  margin-bottom: 1.5rem;
+}
+
+.projects h5 {
+  color: var(--secondary);
+  font-size: 0.9rem;
+  margin: 0 0 0.75rem 0;
+  font-weight: 600;
+}
+
+.projects ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.projects li {
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tech {
+  background: rgba(0, 212, 255, 0.1);
+  color: var(--secondary);
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.tech:hover {
+  background: rgba(0, 212, 255, 0.2);
+  border-color: var(--secondary);
+  transform: translateY(-2px);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .experience {
+    padding: 4rem 1rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .timelineItem {
+    margin-bottom: 2rem;
+  }
+
+  .timelineMarker {
+    width: 40px;
+    margin-right: 1rem;
+  }
+
+  .marker {
+    width: 12px;
+    height: 12px;
+  }
+
+  .content {
+    padding: 1.5rem;
+  }
+
+  .position {
+    font-size: 1.2rem;
+  }
+
+  .company {
+    font-size: 1rem;
+  }
+
+  .meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .technologies {
+    gap: 0.25rem;
+  }
+
+  .tech {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .timelineMarker {
+    margin-right: 0.75rem;
+  }
+
+  .content {
+    padding: 1rem;
+  }
+
+  .position {
+    font-size: 1.1rem;
+  }
+
+  .technologies {
+    gap: 0.2rem;
+  }
+}

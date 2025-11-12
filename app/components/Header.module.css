@@ -1,0 +1,119 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(10, 14, 39, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  z-index: 1000;
+  padding: 1rem 0;
+}
+
+.nav {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--primary);
+  text-decoration: none;
+  font-family: 'Courier New', monospace;
+}
+
+.logo::before {
+  content: '<';
+  color: var(--secondary);
+}
+
+.logo::after {
+  content: '/>';
+  color: var(--secondary);
+}
+
+.navLinks {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.navLinks a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s;
+  font-size: 0.95rem;
+  position: relative;
+  font-family: 'Courier New', monospace;
+}
+
+.navLinks a::before {
+  content: '# ';
+  color: var(--primary);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.navLinks a:hover::before {
+  opacity: 1;
+}
+
+.navLinks a:hover {
+  color: var(--primary);
+}
+
+.languageSelector {
+  position: fixed;
+  top: 90px;
+  right: 2rem;
+  z-index: 1000;
+  display: flex;
+  gap: 0.5rem;
+  background: var(--bg-card);
+  padding: 0.3rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.languageButton {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: all 0.3s;
+  color: var(--text-secondary);
+  font-family: 'Courier New', monospace;
+}
+
+.languageButton.active {
+  background: var(--primary);
+  color: var(--bg-dark);
+}
+
+.languageButton:hover:not(.active) {
+  background: var(--bg-card-hover);
+  color: var(--primary);
+}
+
+@media (max-width: 968px) {
+  .navLinks {
+    gap: 1.5rem;
+  }
+
+  .languageSelector {
+    top: 80px;
+    right: 1rem;
+  }
+}

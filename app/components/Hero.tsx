@@ -47,6 +47,13 @@ public class Developer {
           <a href="#projects" className={styles.btn}>
             {translate('View Projects', 'Ver Proyectos')}
           </a>
+          <a 
+            href={language === 'en' ? '/resumes/Marcos_Echague_Resume_EN.pdf' : '/resumes/Marcos_Echague_Resume_ES.pdf'}
+            download
+            className={`${styles.btn} ${styles.btnSecondary}`}
+          >
+            {translate('Download CV', 'Descargar CV')} 📄
+          </a>
           <a href="#contact" className={`${styles.btn} ${styles.btnSecondary}`}>
             {translate('Get In Touch', 'Contáctame')}
           </a>

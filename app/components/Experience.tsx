@@ -57,7 +57,7 @@ export default function Experience() {
         en: 'Leading development of cutting-edge healthcare and AI applications. Healthcare real-time data capture and prediction system using Java Spring Boot with JOOQ. Recent work on Next.js serverless application with SST, PostgreSQL with vector embeddings, and AI integrations.',
         es: 'Liderando el desarrollo de aplicaciones de salud e IA de vanguardia. Sistema de captura y predicción de datos en tiempo real para healthcare usando Java Spring Boot con JOOQ. Trabajo reciente en aplicación serverless Next.js con SST, PostgreSQL con embeddings vectoriales, e integraciones de IA.'
       },
-      technologies: ['Java', 'Spring Boot', 'JOOQ', 'Next.js', 'TypeScript', 'AWS', 'PostgreSQL', 'Docker', 'Kubernetes', 'Redis', 'OpenAI API', '11Labs', 'Tavus', 'AI/ML'],
+      technologies: ['Java', 'Spring Boot', 'JOOQ', 'Next.js', 'TypeScript', 'AWS', 'PostgreSQL', 'Docker', 'Kubernetes', 'Redis', 'OpenAI API', '11Labs', 'Tavus', 'AI'],
       projects: {
         en: [
           'Healthcare real-time data capture and prediction system',

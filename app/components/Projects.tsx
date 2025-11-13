@@ -27,19 +27,19 @@ const projects: Project[] = [
   {
     id: 'nande-ia',
     title: {
-      en: 'Ñande IA - Paraguay Government AI Assistant',
-      es: 'Ñande IA - Asistente IA del Gobierno Paraguayo'
+      en: 'Ñande IA - Paraguay Citizens AI Assistant',
+      es: 'Ñande IA - Asistente IA para Ciudadanos Paraguayos'
     },
     description: {
-      en: 'AI-powered platform that allows Paraguayan citizens to upload government documents (PDFs, text) which are processed into embeddings and stored in PostgreSQL. Uses RAG (Retrieval-Augmented Generation) with OpenAI to provide instant answers about government procedures, women\'s rights, education, and other civic categories. Features asynchronous document processing and intelligent prompting for accurate citizen assistance.',
-      es: 'Plataforma impulsada por IA que permite a ciudadanos paraguayos subir documentos gubernamentales (PDFs, texto) que son procesados en embeddings y almacenados en PostgreSQL. Usa RAG (Generación Aumentada por Recuperación) con OpenAI para brindar respuestas instantáneas sobre trámites gubernamentales, derechos de la mujer, educación y otras categorías cívicas. Incluye procesamiento asíncrono de documentos y prompting inteligente para asistencia ciudadana precisa.'
+      en: 'Personal hobby project designed to help Paraguayan citizens by providing an AI-powered platform for government document queries. Citizens can upload documents (PDFs, text) which are processed into embeddings via async cloud processing. Uses RAG (Retrieval-Augmented Generation) with OpenAI to provide instant answers about government procedures, women\'s rights, education, and other civic categories. Built to democratize access to government information.',
+      es: 'Proyecto personal de hobby diseñado para ayudar a ciudadanos paraguayos mediante una plataforma IA para consultas sobre documentos gubernamentales. Los ciudadanos pueden subir documentos (PDFs, texto) que son procesados a embeddings mediante procesamiento asíncrono en la nube. Usa RAG (Generación Aumentada por Recuperación) con OpenAI para brindar respuestas instantáneas sobre trámites gubernamentales, derechos de la mujer, educación y otras categorías cívicas. Construido para democratizar el acceso a información gubernamental.'
     },
-    technologies: ['Next.js', 'TypeScript', 'PostgreSQL', 'OpenAI API', 'Embeddings', 'RAG', 'Google Cloud', 'Vercel'],
-    category: 'AI/Machine Learning',
+    technologies: ['Next.js', 'TypeScript', 'PostgreSQL', 'OpenAI API', 'Embeddings', 'RAG', 'Google Cloud', 'Vercel', 'Pub/Sub'],
+    category: 'AI',
     featured: true,
     architecture: {
-      en: 'Document Upload → PDF Processing → Text Extraction → Embeddings Generation → PostgreSQL Vector Storage → RAG Query Processing → OpenAI Response → User Interface',
-      es: 'Subida de Documentos → Procesamiento PDF → Extracción de Texto → Generación de Embeddings → Almacenamiento Vectorial PostgreSQL → Procesamiento RAG → Respuesta OpenAI → Interfaz de Usuario'
+      en: 'Frontend (Next.js) → Backend API → PostgreSQL Vector DB → Google Cloud Pub/Sub → Async Embeddings Processing → Query Flow: DB Retrieval → OpenAI RAG → Response Generation → Frontend Display',
+      es: 'Frontend (Next.js) → API Backend → PostgreSQL Vector DB → Google Cloud Pub/Sub → Procesamiento Async Embeddings → Flujo Consulta: Recuperación BD → OpenAI RAG → Generación Respuesta → Display Frontend'
     }
   },
   {
@@ -65,7 +65,6 @@ const projects: Project[] = [
 export default function Projects() {
   const [language, setLanguage] = useState('en');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [showArchitecture, setShowArchitecture] = useState<string | null>(null);
 
   useEffect(() => {
     const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
@@ -87,12 +86,9 @@ export default function Projects() {
 
   const closeModal = () => {
     setSelectedProject(null);
-    setShowArchitecture(null);
   };
 
-  const toggleArchitecture = (projectId: string) => {
-    setShowArchitecture(showArchitecture === projectId ? null : projectId);
-  };
+  // ArchitectureFlow (React Flow) will be rendered from an external component `ArchitectureFlow`.
 
   return (
     <section id="projects" className={styles.projects}>
@@ -154,46 +150,7 @@ export default function Projects() {
                 >
                   {translate('View Details', 'Ver Detalles')} →
                 </button>
-                {project.architecture && (
-                  <button 
-                    className={styles.architectureBtn}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      toggleArchitecture(project.id);
-                    }}
-                  >
-                    {translate('Architecture', 'Arquitectura')} 🏗️
-                  </button>
-                )}
               </div>
-
-              <AnimatePresence>
-                {showArchitecture === project.id && project.architecture && (
-                  <motion.div
-                    className={styles.architectureFlow}
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <h4 className={styles.architectureTitle}>
-                      {translate('System Architecture', 'Arquitectura del Sistema')}
-                    </h4>
-                    <div className={styles.flowDiagram}>
-                      {project.architecture[language as keyof typeof project.architecture]
-                        .split(' → ')
-                        .map((step, stepIndex, array) => (
-                          <div key={stepIndex} className={styles.flowStep}>
-                            <span className={styles.stepBox}>{step}</span>
-                            {stepIndex < array.length - 1 && (
-                              <span className={styles.flowArrow}>→</span>
-                            )}
-                          </div>
-                        ))}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
             </motion.div>
           ))}
         </div>
@@ -237,24 +194,6 @@ export default function Projects() {
                       ))}
                     </div>
                   </div>
-
-                  {selectedProject.architecture && (
-                    <div className={styles.modalArchitecture}>
-                      <h4>{translate('System Architecture Flow:', 'Flujo de Arquitectura del Sistema:')}</h4>
-                      <div className={styles.modalFlowDiagram}>
-                        {selectedProject.architecture[language as keyof typeof selectedProject.architecture]
-                          .split(' → ')
-                          .map((step, stepIndex, array) => (
-                            <div key={stepIndex} className={styles.modalFlowStep}>
-                              <div className={styles.modalStepBox}>{step}</div>
-                              {stepIndex < array.length - 1 && (
-                                <div className={styles.modalFlowArrow}>↓</div>
-                              )}
-                            </div>
-                          ))}
-                      </div>
-                    </div>
-                  )}
                 </div>
               </motion.div>
             </motion.div>
@@ -262,5 +201,151 @@ export default function Projects() {
         </AnimatePresence>
       </div>
     </section>
+  );
+}
+
+// Componente de Arquitectura Visual para Ñande IA
+function NandeIAArchitecture({ language }: { language: string }) {
+  const translate = (en: string, es: string) => language === 'en' ? en : es;
+
+  return (
+    <div className={styles.visualArchitecture}>
+      {/* Frontend Layer */}
+      <div className={styles.architectureLayer}>
+        <h5 className={styles.layerTitle}>
+          🌐 {translate('Frontend Layer', 'Capa Frontend')}
+        </h5>
+        <div className={styles.layerComponents}>
+          <div className={styles.component}>
+            📄 {translate('Document Upload', 'Subida Documentos')}
+          </div>
+          <div className={styles.component}>
+            🔍 {translate('Search Interface', 'Interfaz Búsqueda')}
+          </div>
+          <div className={styles.component}>
+            💬 {translate('AI Chat Interface', 'Interfaz Chat IA')}
+          </div>
+        </div>
+        <div className={styles.techBadge}>Next.js + TypeScript</div>
+      </div>
+
+      <div className={styles.flowArrowDown}>↓</div>
+
+      {/* Backend Layer */}
+      <div className={styles.architectureLayer}>
+        <h5 className={styles.layerTitle}>
+          ⚙️ {translate('Backend Layer', 'Capa Backend')}
+        </h5>
+        <div className={styles.layerComponents}>
+          <div className={styles.component}>
+            🔗 {translate('API Endpoints', 'Endpoints API')}
+          </div>
+          <div className={styles.component}>
+            📝 {translate('Document Processing', 'Procesamiento Docs')}
+          </div>
+          <div className={styles.component}>
+            🤖 {translate('RAG Engine', 'Motor RAG')}
+          </div>
+        </div>
+        <div className={styles.techBadge}>Node.js + API Routes</div>
+      </div>
+
+      <div className={styles.flowConnections}>
+        <div className={styles.connectionLine}>
+          <span className={styles.flowArrowRight}>→</span>
+          <span className={styles.connectionLabel}>
+            {translate('Async Processing', 'Procesamiento Async')}
+          </span>
+        </div>
+        <div className={styles.connectionLine}>
+          <span className={styles.flowArrowLeft}>←</span>
+          <span className={styles.connectionLabel}>
+            {translate('Query Retrieval', 'Recuperación Consulta')}
+          </span>
+        </div>
+      </div>
+
+      {/* Database & Cloud Services */}
+      <div className={styles.servicesRow}>
+        <div className={styles.serviceBox}>
+          <h5 className={styles.serviceTitle}>
+            🗄️ {translate('Database', 'Base de Datos')}
+          </h5>
+          <div className={styles.serviceComponents}>
+            <div className={styles.serviceItem}>
+              📊 {translate('Vector Embeddings', 'Embeddings Vectoriales')}
+            </div>
+            <div className={styles.serviceItem}>
+              📋 {translate('Document Metadata', 'Metadata Documentos')}
+            </div>
+            <div className={styles.serviceItem}>
+              👥 {translate('User Sessions', 'Sesiones Usuario')}
+            </div>
+          </div>
+          <div className={styles.techBadge}>PostgreSQL + Vector Extensions</div>
+        </div>
+
+        <div className={styles.serviceBox}>
+          <h5 className={styles.serviceTitle}>
+            ☁️ {translate('Cloud Services', 'Servicios Cloud')}
+          </h5>
+          <div className={styles.serviceComponents}>
+            <div className={styles.serviceItem}>
+              📤 {translate('Pub/Sub Queue', 'Cola Pub/Sub')}
+            </div>
+            <div className={styles.serviceItem}>
+              🧠 {translate('Embeddings Generation', 'Generación Embeddings')}
+            </div>
+            <div className={styles.serviceItem}>
+              🔄 {translate('Async Workers', 'Workers Async')}
+            </div>
+          </div>
+          <div className={styles.techBadge}>Google Cloud Platform</div>
+        </div>
+      </div>
+
+      <div className={styles.flowArrowDown}>↓</div>
+
+      {/* External AI Services */}
+      <div className={styles.architectureLayer}>
+        <h5 className={styles.layerTitle}>
+          🤖 {translate('AI Services', 'Servicios IA')}
+        </h5>
+        <div className={styles.layerComponents}>
+          <div className={styles.component}>
+            💭 {translate('RAG Processing', 'Procesamiento RAG')}
+          </div>
+          <div className={styles.component}>
+            🎯 {translate('Context Retrieval', 'Recuperación Contexto')}
+          </div>
+          <div className={styles.component}>
+            ✨ {translate('Response Generation', 'Generación Respuestas')}
+          </div>
+        </div>
+        <div className={styles.techBadge}>OpenAI GPT-4</div>
+      </div>
+
+      {/* Data Flow Indicators */}
+      <div className={styles.dataFlows}>
+        <div className={styles.flowIndicator}>
+          <span className={styles.flowLabel}>
+            📤 {translate('Upload Flow', 'Flujo Subida')}: 
+          </span>
+          <span className={styles.flowPath}>
+            {translate('Frontend → Backend → Cloud Queue → Embeddings → Database', 
+                      'Frontend → Backend → Cola Cloud → Embeddings → Base Datos')}
+          </span>
+        </div>
+        <div className={styles.flowIndicator}>
+          <span className={styles.flowLabel}>
+            🔍 {translate('Query Flow', 'Flujo Consulta')}: 
+          </span>
+          <span className={styles.flowPath}>
+            {translate('Search → Database Retrieval → OpenAI RAG → Response → Frontend',
+                      'Búsqueda → Recuperación BD → OpenAI RAG → Respuesta → Frontend')}
+          </span>
+        </div>
+      </div>
+    </div>
   );
 }

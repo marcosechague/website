@@ -102,10 +102,19 @@ Then deploy the `.next` folder on Netlify.
    - Lazy loading
    - Dynamic metadata
 
-## 👤 Author
+## � Documentation
+
+Additional documentation is available in the `/docs` folder:
+
+- **[Installation Guide](docs/INSTRUCTIONS.md)** - Detailed setup instructions
+- **[EmailJS Setup](docs/EMAILJS-SETUP.md)** - Email service configuration
+- **[Anti-Spam Protection](docs/ANTI-SPAM-PROTECTION.md)** - Security measures for contact form
+
+## �👤 Author
 
 **Marcos Echague**
 
+- Website: [marcosechague.com](https://marcosechague.com)
 - LinkedIn: [marcosechague](https://www.linkedin.com/in/marcosechague/)
 - GitHub: [marcosechague](https://github.com/marcosechague)
 

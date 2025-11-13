@@ -4,7 +4,9 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import DevZoneButton from './components/DevZoneButton'
 import Experience from './components/Experience'
+import Certifications from './components/Certifications'
 import Projects from './components/Projects'
+import Contact from './components/Contact'
 
 export default function Home() {
   return (
@@ -76,37 +78,48 @@ export default function Home() {
             <span style={{color: 'var(--primary)'}}>{' }'}</span>
           </h2>
         </div>
-        <p style={{color: 'var(--text-secondary)', lineHeight: '1.8', maxWidth: '800px'}}>
-          I'm a Backend Java Developer with expertise in building enterprise applications for Banking, Healthcare, and E-commerce. 
-          Specialized in Spring Boot, PostgreSQL, Docker, and AWS. Currently integrating AI solutions with OpenAI, Tavus, and 11Labs.
-        </p>
+        <div style={{color: 'var(--text-secondary)', lineHeight: '1.8', maxWidth: '900px'}}>
+          <p style={{marginBottom: '2rem', fontSize: '1.1rem'}}>
+            I'm a passionate Backend Java Developer with a deep love for crafting robust, scalable enterprise applications. 
+            My journey in software development has taken me through diverse industries including Banking, Healthcare, and E-commerce, 
+            where I've learned to build solutions that handle complex business requirements and high-traffic environments.
+          </p>
+          
+          <p style={{marginBottom: '2rem'}}>
+            <strong style={{color: 'var(--primary)'}}>Technical Expertise:</strong> I specialize in the Java ecosystem with Spring Boot as my framework of choice, 
+            building microservices architectures that are maintainable and performant. My database expertise centers around PostgreSQL, 
+            and I'm proficient with containerization using Docker and cloud deployment on AWS. Currently, I'm expanding into the AI space, 
+            integrating cutting-edge solutions with OpenAI, Tavus, and 11Labs into traditional business applications.
+          </p>
+          
+          <p style={{marginBottom: '2rem'}}>
+            <strong style={{color: 'var(--primary)'}}>Problem Solving & Creativity:</strong> What drives me most is tackling challenging problems that require innovative thinking. 
+            I thrive when faced with complex architectural decisions, performance optimization challenges, and the satisfaction of turning 
+            abstract business requirements into concrete, working solutions. Every bug is a puzzle, and every new feature is an opportunity to learn something new.
+          </p>
+          
+          <p style={{marginBottom: '2rem'}}>
+            <strong style={{color: 'var(--primary)'}}>Continuous Learning:</strong> The tech world never stops evolving, and neither do I. I'm constantly exploring new technologies, 
+            design patterns, and best practices. From diving deep into Spring Security to understanding AI model integration, 
+            I believe that staying curious and adaptable is essential for any developer who wants to build truly impactful software.
+          </p>
+          
+          <p>
+            <strong style={{color: 'var(--primary)'}}>Team Collaboration:</strong> I've learned that the best software is built by teams, not individuals. 
+            I excel in collaborative environments where ideas flow freely, code reviews are learning opportunities, and everyone's 
+            expertise contributes to better solutions. Whether I'm mentoring junior developers or learning from senior architects, 
+            I value the collective knowledge and creativity that emerges from great teamwork.
+          </p>
+        </div>
       </section>
 
       <Experience />
 
+      <Certifications />
+
       <Projects />
 
-      <section id="contact" style={{
-        maxWidth: '1400px',
-        margin: '0 auto',
-        padding: '6rem 2rem',
-        minHeight: '100vh',
-        background: 'rgba(20, 27, 61, 0.3)'
-      }}>
-        <div style={{marginBottom: '4rem'}}>
-          <p style={{color: 'var(--primary)', fontSize: '0.9rem', marginBottom: '0.5rem', fontFamily: 'Courier New, monospace'}}>
-            // Get In Touch
-          </p>
-          <h2 style={{fontSize: '2.5rem', marginBottom: '1rem'}}>
-            <span style={{color: 'var(--primary)'}}>{'{ '}</span>
-            Contact
-            <span style={{color: 'var(--primary)'}}>{' }'}</span>
-          </h2>
-        </div>
-        <p style={{color: 'var(--text-secondary)', lineHeight: '1.8', maxWidth: '800px'}}>
-          Contact form coming soon...
-        </p>
-      </section>
+      <Contact />
 
       <footer style={{
         background: 'var(--bg-card)',
@@ -115,7 +128,7 @@ export default function Home() {
         textAlign: 'center'
       }}>
         <p style={{color: 'var(--text-secondary)', fontFamily: 'Courier New, monospace'}}>
-          © 2025 Marcos Echague. Built with Next.js & passion for clean code.
+          © 2025 Marcos Echague. All rights reserved.
         </p>
       </footer>
       

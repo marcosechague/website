@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcos Echague - Currículum</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 30px;
+            background: white;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #0066cc;
+            padding-bottom: 20px;
+        }
+        
+        .name {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #0066cc;
+            margin-bottom: 10px;
+        }
+        
+        .title {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+        }
+        
+        .contact-info span {
+            color: #0066cc;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #0066cc;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+        
+        .summary {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #555;
+            text-align: justify;
+        }
+        
+        .experience-item, .education-item {
+            margin-bottom: 20px;
+        }
+        
+        .job-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .company {
+            font-weight: bold;
+            color: #0066cc;
+        }
+        
+        .duration {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+        
+        .description {
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .skill-category {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 3px solid #0066cc;
+        }
+        
+        .skill-category h4 {
+            color: #0066cc;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+        
+        .skill-category ul {
+            list-style: none;
+        }
+        
+        .skill-category li {
+            color: #555;
+            margin-bottom: 3px;
+            font-size: 0.9rem;
+        }
+        
+        .skill-category li:before {
+            content: "▪ ";
+            color: #0066cc;
+            margin-right: 5px;
+        }
+        
+        @media print {
+            body {
+                padding: 20px;
+                font-size: 12px;
+            }
+            
+            .name {
+                font-size: 2rem;
+            }
+            
+            .contact-info {
+                font-size: 0.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1 class="name">Marcos Echague</h1>
+        <p class="title">Desarrollador Backend Java Senior | Soluciones Cloud e IA</p>
+        <div class="contact-info">
+            <span>📧 marcos.echague@gmail.com</span>
+            <span>📱 +595 984 748 366</span>
+            <span>📍 Asunción, Paraguay</span>
+            <span>🔗 linkedin.com/in/marcosechague</span>
+            <span>🌐 marcosechague.com</span>
+        </div>
+    </header>
+
+    <section class="section">
+        <h2 class="section-title">Perfil Profesional</h2>
+        <p class="summary">
+            Desarrollador Backend Java Senior experimentado con 10 años de experiencia diseñando y construyendo 
+            sistemas escalables, confiables y listos para producción en industrias como banca y salud.
+            Especializado en Java y Spring Boot, arquitectura de microservicios y soluciones nativas en la nube con AWS.
+            Sólida experiencia en optimización de bases de datos (PostgreSQL, JOOQ), desarrollo serverless y arquitectura limpia.
+            Experiencia práctica integrando APIs y herramientas de IA modernas — incluyendo OpenAI, Tavus y 11Labs — para 
+            mejorar la automatización, procesamiento de datos y experiencia del usuario. Apasionado por crear sistemas 
+            backend eficientes que combinan prácticas sólidas de ingeniería con tecnología innovadora y visionaria.
+        </p>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Experiencia Profesional</h2>
+        
+        <div class="experience-item">
+            <div class="job-title">Ingeniero de Software</div>
+            <div class="company">Ingenious Agency — Remoto</div>
+            <div class="duration">Ene 2024 – Presente</div>
+            <p class="description">
+                • Lidero el desarrollo de aplicaciones de salud en tiempo real con análisis predictivo e insights basados en datos<br>
+                • Arquitecto aplicaciones serverless usando Next.js, SST y PostgreSQL con embeddings vectoriales<br>
+                • Integro sistemas conversacionales impulsados por IA con APIs de OpenAI, 11Labs y Tavus<br>
+                • Construyo y optimizo sistemas de IA basados en RAG con ingeniería avanzada de prompts para inteligencia específica de dominio<br>
+                • Desarrollo y mantengo microservicios Spring Boot usando JOOQ para operaciones type-safe de base de datos
+            </p>
+        </div>
+
+        <div class="experience-item">
+            <div class="job-title">Desarrollador Backend</div>
+            <div class="company">Asociación de Emprendedores de Paraguay (ASEPY) — Contrato</div>
+            <div class="duration">2022 – 2023</div>
+            <p class="description">
+                • Diseñé e implementé backends serverless basados en AWS para alta disponibilidad y escalabilidad<br>
+                • Entregué plataforma de gestión de membresía sirviendo miles de emprendedores a nivel nacional<br>
+                • Optimicé costos y rendimiento en la nube a través de arquitectura basada en eventos
+            </p>
+        </div>
+
+        <div class="experience-item">
+            <div class="job-title">Desarrollador de Software Senior</div>
+            <div class="company">Fintech.works (Sodep S.A.)</div>
+            <div class="duration">2021 – 2022</div>
+            <p class="description">
+                • Diseñé microservicios seguros de fintech soportando transacciones de billeteras digitales<br>
+                • Construí e integré componentes móviles Android para operaciones de pago<br>
+                • Aseguré cumplimiento PCI-DSS y seguridad en sistemas financieros
+            </p>
+        </div>
+
+        <div class="experience-item">
+            <div class="job-title">Desarrollador Java Senior</div>
+            <div class="company">Sodep S.A.</div>
+            <div class="duration">2019 – 2021</div>
+            <p class="description">
+                • Arquitecté y optimicé sistemas ERP para un distribuidor nacional importante<br>
+                • Desarrollé plataformas de e-commerce personalizadas con gestión de inventario y órdenes en tiempo real<br>
+                • Promoví arquitectura limpia y calidad de código dentro de los equipos de desarrollo
+            </p>
+        </div>
+
+        <div class="experience-item">
+            <div class="job-title">Desarrollador de Software</div>
+            <div class="company">BBVA (Banco Bilbao Vizcaya Argentaria)</div>
+            <div class="duration">2017 – 2019</div>
+            <p class="description">
+                • Contribuí a mejoras de la plataforma de Banca Web sirviendo miles de usuarios<br>
+                • Implementé flujos de transacciones seguras conformes con estándares bancarios<br>
+                • Colaboré en equipos ágiles entregando funcionalidades de alto impacto
+            </p>
+        </div>
+
+        <div class="experience-item">
+            <div class="job-title">Desarrollador de Software Java</div>
+            <div class="company">ROSHKA S.A.</div>
+            <div class="duration">2016 – 2017</div>
+            <p class="description">
+                • Desarrollé APIs RESTful para aplicaciones transaccionales<br>
+                • Construí frameworks de despliegue y testing mejorando la velocidad de entrega<br>
+                • Gestioné infraestructura de producción en entornos Linux y Windows
+            </p>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Habilidades Técnicas</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h4>Desarrollo Backend</h4>
+                <ul>
+                    <li>Java (Spring Boot)</li>
+                    <li>JOOQ</li>
+                    <li>Microservicios</li>
+                    <li>APIs RESTful</li>
+                    <li>Arquitectura Limpia</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h4>Cloud e Infraestructura</h4>
+                <ul>
+                    <li>AWS (Lambda, EC2, RDS, S3)</li>
+                    <li>SST</li>
+                    <li>Docker</li>
+                    <li>CI/CD</li>
+                    <li>Linux</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h4>Bases de Datos</h4>
+                <ul>
+                    <li>PostgreSQL</li>
+                    <li>Optimización SQL</li>
+                    <li>Embeddings Vectoriales</li>
+                    <li>Modelado de Datos</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h4>IA y Tecnologías Emergentes</h4>
+                <ul>
+                    <li>OpenAI API</li>
+                    <li>Sistemas RAG</li>
+                    <li>11Labs Voice AI</li>
+                    <li>Tavus Video AI</li>
+                    <li>Ingeniería de Prompts</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Educación</h2>
+        <div class="education-item">
+            <div class="job-title">Licenciatura en Ciencias de la Computación</div>
+            <div class="company">Universidad Nacional de Asunción</div>
+            <div class="duration">2014 – 2018</div>
+            <p class="description">
+                Especialización: Ingeniería de Software, Arquitectura de Sistemas, Diseño de Bases de Datos
+            </p>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Proyectos Destacados</h2>
+        
+        <div class="experience-item">
+            <div class="job-title">Sistema de Datos de Salud en Tiempo Real</div>
+            <div class="duration">2024</div>
+            <p class="description">
+                • Diseñé un sistema de análisis predictivo usando Spring Boot + JOOQ para datos médicos<br>
+                • Integré APIs de OpenAI para interpretación automatizada de datos e insights<br>
+                • Logré alto rendimiento con manejo seguro de datos sensibles de salud
+            </p>
+        </div>
+
+        <div class="experience-item">
+            <div class="job-title">Plataforma Conversacional de IA</div>
+            <div class="duration">2024</div>
+            <p class="description">
+                • Construí sistema de comunicación multimodal impulsado por IA combinando voz, texto y video<br>
+                • Usé embeddings de PostgreSQL para diálogo contextual y despliegue serverless SST
+            </p>
+        </div>
+
+        <div class="experience-item">
+            <div class="job-title">Sistema ERP y E-Commerce</div>
+            <div class="duration">2021</div>
+            <p class="description">
+                • Arquitecté backend ERP para distribuidor nacional gestionando transacciones de alto volumen<br>
+                • Implementé capa de e-commerce personalizada con sincronización en tiempo real
+            </p>
+        </div>
+    </section>
+</body>
+</html>

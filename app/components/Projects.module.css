@@ -193,6 +193,43 @@
   gap: 0.5rem;
 }
 
+/* SVG Architecture container */
+.diagramContainer {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background: linear-gradient(145deg, rgba(15, 23, 42, 0.8), rgba(30, 41, 59, 0.6));
+  border-radius: 16px;
+  border: 2px solid rgba(0, 212, 255, 0.3);
+  overflow-x: auto;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.svgDiagram {
+  display: flex;
+  justify-content: center;
+  min-width: 1000px;
+}
+
+.svgDiagram svg {
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  border-radius: 12px;
+  background: linear-gradient(145deg, rgba(15, 23, 42, 0.9), rgba(30, 41, 59, 0.7));
+  border: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+/* React Flow wrapper for interactive architecture */
+.reactflowWrapper {
+  width: 100%;
+  min-width: 900px;
+  height: 500px;
+  border-radius: 12px;
+  background: linear-gradient(145deg, rgba(10, 14, 20, 0.8), rgba(20, 25, 35, 0.6));
+  border: 1px solid rgba(148, 163, 184, 0.06);
+  padding: 8px;
+}
+
 .flowStep {
   display: flex;
   align-items: center;
@@ -236,9 +273,9 @@
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 16px;
-  max-width: 800px;
-  width: 100%;
-  max-height: 90vh;
+  max-width: 1200px;
+  width: 95%;
+  max-height: 95vh;
   overflow-y: auto;
   position: relative;
 }
@@ -422,7 +459,9 @@
 
   .modalContent {
     margin: 1rem;
-    max-height: 80vh;
+    max-height: 90vh;
+    max-width: 95vw;
+    width: 95%;
   }
 
   .modalHeader {
@@ -444,6 +483,206 @@
   .modalStepBox {
     min-width: 150px;
     padding: 0.8rem 1rem;
+  }
+}
+
+/* Visual Architecture Styles */
+.visualArchitecture {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1.5rem;
+  background: var(--bg-dark);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.architectureLayer {
+  background: linear-gradient(135deg, var(--bg-card), var(--bg-dark));
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  position: relative;
+}
+
+.layerTitle {
+  color: var(--primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  text-align: center;
+}
+
+.layerComponents {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.component {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.component:hover {
+  border-color: var(--primary);
+  box-shadow: 0 4px 15px rgba(0, 255, 136, 0.1);
+  transform: translateY(-2px);
+}
+
+.techBadge {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: var(--bg-dark);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.flowArrowDown {
+  font-size: 2rem;
+  color: var(--secondary);
+  text-align: center;
+  margin: 0.5rem 0;
+  animation: bounce-vertical 2s infinite;
+}
+
+@keyframes bounce-vertical {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+.flowConnections {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.connectionLine {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--bg-card);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.flowArrowRight, .flowArrowLeft {
+  font-size: 1.5rem;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.connectionLabel {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.servicesRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.serviceBox {
+  background: linear-gradient(135deg, var(--bg-card), var(--bg-dark));
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.serviceTitle {
+  color: var(--secondary);
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  text-align: center;
+}
+
+.serviceComponents {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.serviceItem {
+  background: var(--bg-dark);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.8rem;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
+.serviceItem:hover {
+  border-color: var(--secondary);
+  box-shadow: 0 2px 10px rgba(0, 212, 255, 0.1);
+}
+
+.dataFlows {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.flowIndicator {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.flowLabel {
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.flowPath {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-family: 'Courier New', monospace;
+  margin-left: 0.5rem;
+}
+
+/* Responsive for visual architecture */
+@media (max-width: 968px) {
+  .servicesRow {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .layerComponents {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+  
+  .component {
+    padding: 0.8rem;
+    font-size: 0.9rem;
   }
 }
 

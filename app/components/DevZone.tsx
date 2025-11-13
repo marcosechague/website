@@ -240,49 +240,6 @@ export default function DevZone() {
 
   return (
     <div className={styles.devZone}>
-      {/* Welcome Section */}
-      {!selectedCategory && (
-        <motion.div
-          className={styles.welcome}
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className={styles.welcomeContent}>
-            <h1>
-              {translate('Welcome to DevZone! 🚀', '¡Bienvenido a DevZone! 🚀')}
-            </h1>
-            <p>
-              {translate(
-                'Your interactive learning playground for backend development, system architecture, and engineering best practices.',
-                'Tu espacio interactivo de aprendizaje para desarrollo backend, arquitectura de sistemas y mejores prácticas de ingeniería.'
-              )}
-            </p>
-            <div className={styles.stats}>
-              <div className={styles.statItem}>
-                <span className={styles.statNumber}>{categories.length}</span>
-                <span className={styles.statLabel}>
-                  {translate('Categories', 'Categorías')}
-                </span>
-              </div>
-              <div className={styles.statItem}>
-                <span className={styles.statNumber}>
-                  {categories.reduce((acc, cat) => acc + cat.demos.length, 0)}
-                </span>
-                <span className={styles.statLabel}>
-                  {translate('Interactive Demos', 'Demos Interactivos')}
-                </span>
-              </div>
-              <div className={styles.statItem}>
-                <span className={styles.statNumber}>∞</span>
-                <span className={styles.statLabel}>
-                  {translate('Learning', 'Aprendizaje')}
-                </span>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-      )}
 
       {/* Categories Grid */}
       {!selectedCategory && (

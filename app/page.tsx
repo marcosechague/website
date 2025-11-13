@@ -4,6 +4,7 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import DevZoneButton from './components/DevZoneButton'
 import Experience from './components/Experience'
+import Projects from './components/Projects'
 
 export default function Home() {
   return (
@@ -83,26 +84,7 @@ export default function Home() {
 
       <Experience />
 
-      <section id="projects" style={{
-        maxWidth: '1400px',
-        margin: '0 auto',
-        padding: '6rem 2rem',
-        minHeight: '100vh'
-      }}>
-        <div style={{marginBottom: '4rem'}}>
-          <p style={{color: 'var(--primary)', fontSize: '0.9rem', marginBottom: '0.5rem', fontFamily: 'Courier New, monospace'}}>
-            // My Work
-          </p>
-          <h2 style={{fontSize: '2.5rem', marginBottom: '1rem'}}>
-            <span style={{color: 'var(--primary)'}}>{'{ '}</span>
-            Projects
-            <span style={{color: 'var(--primary)'}}>{' }'}</span>
-          </h2>
-        </div>
-        <p style={{color: 'var(--text-secondary)', lineHeight: '1.8', maxWidth: '800px'}}>
-          Featured projects coming soon...
-        </p>
-      </section>
+      <Projects />
 
       <section id="contact" style={{
         maxWidth: '1400px',

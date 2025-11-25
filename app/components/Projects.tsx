@@ -17,6 +17,7 @@ interface Project {
   technologies: string[];
   category: string;
   featured: boolean;
+  link?: string;
   architecture?: {
     en: string;
     es: string;
@@ -37,6 +38,7 @@ const projects: Project[] = [
     technologies: ['Next.js', 'TypeScript', 'PostgreSQL', 'OpenAI API', 'Embeddings', 'RAG', 'Google Cloud', 'Vercel', 'Pub/Sub'],
     category: 'AI',
     featured: true,
+    link: 'https://nandeia.marcosechague.com',
     architecture: {
       en: 'Frontend (Next.js) → Backend API → PostgreSQL Vector DB → Google Cloud Pub/Sub → Async Embeddings Processing → Query Flow: DB Retrieval → OpenAI RAG → Response Generation → Frontend Display',
       es: 'Frontend (Next.js) → API Backend → PostgreSQL Vector DB → Google Cloud Pub/Sub → Procesamiento Async Embeddings → Flujo Consulta: Recuperación BD → OpenAI RAG → Generación Respuesta → Display Frontend'
@@ -141,6 +143,17 @@ export default function Projects() {
               </div>
 
               <div className={styles.projectActions}>
+                {project.link && (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.visitLinkBtn}
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    {translate('Visit Site', 'Visitar Sitio')} ↗
+                  </a>
+                )}
                 <button 
                   className={styles.viewMoreBtn}
                   onClick={(e) => {
@@ -194,6 +207,20 @@ export default function Projects() {
                       ))}
                     </div>
                   </div>
+
+                  {selectedProject.link && (
+                    <div className={styles.projectLinkContainer}>
+                      <a
+                        href={selectedProject.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.projectLink}
+                      >
+                        <span>{translate('Visit Project', 'Visitar Proyecto')}</span>
+                        <span className={styles.externalIcon}>↗</span>
+                      </a>
+                    </div>
+                  )}
                 </div>
               </motion.div>
             </motion.div>

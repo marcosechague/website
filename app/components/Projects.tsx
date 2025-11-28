@@ -61,6 +61,24 @@ const projects: Project[] = [
       en: 'Vehicle GPS → API Endpoints → Strapi CMS → PostgreSQL Database → WebSocket Connection → Leaflet Map → Real-time Visualization',
       es: 'GPS Vehicular → Endpoints API → Strapi CMS → Base de Datos PostgreSQL → Conexión WebSocket → Mapa Leaflet → Visualización en Tiempo Real'
     }
+  },
+  {
+    id: 'guarani-translator',
+    title: {
+      en: 'Guarani-Spanish Translation API',
+      es: 'API de Traducción Guaraní-Español'
+    },
+    description: {
+      en: 'FastAPI-based translation service for bidirectional translation between Guarani and Spanish languages. Built with Python and powered by the NLLB-200 (No Language Left Behind) model from Meta AI. Features rate limiting, Docker containerization, and REST API endpoints for seamless integration. Designed to preserve and promote the Guarani language through accessible technology.',
+      es: 'Servicio de traducción basado en FastAPI para traducción bidireccional entre idiomas Guaraní y Español. Construido con Python y potenciado por el modelo NLLB-200 (No Language Left Behind) de Meta AI. Incluye limitación de tasa, containerización Docker y endpoints REST API para integración fluida. Diseñado para preservar y promover el idioma Guaraní a través de tecnología accesible.'
+    },
+    technologies: ['Python', 'FastAPI', 'Transformers', 'PyTorch', 'NLLB-200', 'Docker', 'Uvicorn', 'SlowAPI'],
+    category: 'AI/NLP',
+    featured: true,
+    architecture: {
+      en: 'REST API (FastAPI) → Rate Limiter (SlowAPI) → NLLB-200 Model (Transformers) → PyTorch Inference → Translation Response → Docker Container',
+      es: 'REST API (FastAPI) → Limitador de Tasa (SlowAPI) → Modelo NLLB-200 (Transformers) → Inferencia PyTorch → Respuesta Traducción → Contenedor Docker'
+    }
   }
 ];
 

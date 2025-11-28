@@ -15,7 +15,7 @@ export default function Home() {
       <Hero />
       
       {/* Terminal Social Links */}
-      <div style={{
+      <div className="social-links" style={{
         position: 'fixed',
         left: '2rem',
         top: '50%',

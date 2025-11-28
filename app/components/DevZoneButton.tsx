@@ -11,6 +11,7 @@ interface DevZoneButtonProps {
 
 export default function DevZoneButton({ language = 'en' }: DevZoneButtonProps) {
   const [isVisible, setIsVisible] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const buttonTexts = {
     en: "🚀 Explore DevZone",
@@ -29,58 +30,84 @@ export default function DevZoneButton({ language = 'en' }: DevZoneButtonProps) {
   if (!isVisible) return null;
 
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.5, y: 100 }}
-      animate={{ opacity: 1, scale: 1, y: 0 }}
-      transition={{ 
-        type: "spring",
-        stiffness: 260, 
-        damping: 20 
-      }}
-      className={styles.devZoneButtonContainer}
-    >
-      <Link href="/devzone" className={styles.devZoneButton}>
-        <motion.div
-          whileHover={{ 
-            scale: 1.05,
-            boxShadow: "0 20px 40px rgba(0, 255, 136, 0.4)"
-          }}
-          whileTap={{ scale: 0.95 }}
-          className={styles.buttonContent}
+    <>
+      {/* Mobile Side Menu Toggle - Only visible on mobile */}
+      <button
+        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        className={`${styles.mobileMenuToggle} ${isMobileMenuOpen ? styles.menuOpen : ''}`}
+        aria-label="Toggle DevZone menu"
+      >
+        <span className={styles.toggleIcon}>&lt;/&gt;</span>
+      </button>
+
+      {/* Mobile Side Menu */}
+      <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.mobileMenuActive : ''}`}>
+        <Link 
+          href="/devzone" 
+          className={styles.mobileMenuLink}
+          onClick={() => setIsMobileMenuOpen(false)}
         >
-          {/* Floating elements around button */}
-          <div className={`${styles.floatingElement} ${styles.codeSymbol1}`}>
-            &lt;/&gt;
-          </div>
-          <div className={`${styles.floatingElement} ${styles.codeSymbol2}`}>
-            {'{'}
-          </div>
-          <div className={`${styles.floatingElement} ${styles.codeSymbol3}`}>
-            💻
-          </div>
-          <div className={`${styles.floatingElement} ${styles.codeSymbol4}`}>
-            ⚡
-          </div>
-          
-          {/* Button text */}
-          <span className={styles.buttonText}>
-            {buttonTexts[language]}
+          <span className={styles.mobileMenuIcon}>&lt;/&gt;</span>
+          <span className={styles.mobileMenuText}>
+            {language === 'en' ? 'Explore DevZone' : 'Explorar DevZone'}
           </span>
-          
-          {/* Animated arrow */}
+        </Link>
+      </div>
+
+      {/* Desktop Version - Hidden on mobile */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5, y: 100 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ 
+          type: "spring",
+          stiffness: 260, 
+          damping: 20 
+        }}
+        className={styles.devZoneButtonContainer}
+      >
+        <Link href="/devzone" className={styles.devZoneButton}>
           <motion.div
-            animate={{ x: [0, 5, 0] }}
-            transition={{ 
-              repeat: Infinity, 
-              duration: 2,
-              ease: "easeInOut" 
+            whileHover={{ 
+              scale: 1.05,
+              boxShadow: "0 20px 40px rgba(0, 255, 136, 0.4)"
             }}
-            className={styles.arrow}
+            whileTap={{ scale: 0.95 }}
+            className={styles.buttonContent}
           >
-            →
+            {/* Floating elements around button */}
+            <div className={`${styles.floatingElement} ${styles.codeSymbol1}`}>
+              &lt;/&gt;
+            </div>
+            <div className={`${styles.floatingElement} ${styles.codeSymbol2}`}>
+              {'{'}
+            </div>
+            <div className={`${styles.floatingElement} ${styles.codeSymbol3}`}>
+              💻
+            </div>
+            <div className={`${styles.floatingElement} ${styles.codeSymbol4}`}>
+              ⚡
+            </div>
+            
+            {/* Button text */}
+            <span className={styles.buttonText}>
+              {buttonTexts[language]}
+            </span>
+            
+            {/* Animated arrow */}
+            <motion.div
+              animate={{ x: [0, 5, 0] }}
+              transition={{ 
+                repeat: Infinity, 
+                duration: 2,
+                ease: "easeInOut" 
+              }}
+              className={styles.arrow}
+            >
+              →
+            </motion.div>
           </motion.div>
-        </motion.div>
-      </Link>
-    </motion.div>
+        </Link>
+      </motion.div>
+    </>
   );
 }

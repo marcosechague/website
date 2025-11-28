@@ -1,5 +1,96 @@
 /* DevZone Button Component */
 
+/* Mobile Side Menu Toggle - Only visible on mobile */
+.mobileMenuToggle {
+  display: none;
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(135deg, #00ff88, #00d4ff);
+  border: none;
+  border-radius: 12px 0 0 12px;
+  padding: 12px 8px;
+  cursor: pointer;
+  z-index: 1001;
+  box-shadow: -4px 0 16px rgba(0, 255, 136, 0.3);
+  transition: all 0.3s ease;
+}
+
+.toggleIcon {
+  font-size: 20px;
+  font-weight: bold;
+  display: block;
+  animation: pulse 2s ease-in-out infinite;
+  font-family: 'Courier New', monospace;
+  color: #0a0a0a;
+}
+
+.mobileMenuToggle.menuOpen {
+  right: 200px;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Mobile Side Menu */
+.mobileMenu {
+  display: none;
+  position: fixed;
+  right: -220px;
+  top: 0;
+  height: 100vh;
+  width: 200px;
+  background: rgba(10, 14, 39, 0.98);
+  backdrop-filter: blur(20px);
+  border-left: 2px solid var(--primary);
+  box-shadow: -8px 0 32px rgba(0, 255, 136, 0.2);
+  z-index: 1000;
+  transition: right 0.3s ease;
+  padding: 80px 0 20px;
+}
+
+.mobileMenu.mobileMenuActive {
+  right: 0;
+}
+
+.mobileMenuLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 24px 20px;
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+  border-bottom: 1px solid var(--border);
+}
+
+.mobileMenuLink:hover {
+  background: rgba(0, 255, 136, 0.1);
+}
+
+.mobileMenuIcon {
+  font-size: 64px;
+  font-weight: bold;
+  animation: float 3s ease-in-out infinite;
+  font-family: 'Courier New', monospace;
+  color: var(--primary);
+}
+
+.mobileMenuText {
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  color: var(--primary);
+}
+
 .devZoneButtonContainer {
   position: fixed;
   bottom: 30px;
@@ -25,6 +116,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
   overflow: visible;
   border: 2px solid rgba(255, 255, 255, 0.2);
@@ -111,40 +203,39 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  /* Show mobile menu */
+  .mobileMenuToggle {
+    display: block;
+  }
+  
+  .mobileMenu {
+    display: block;
+  }
+  
+  /* Hide desktop version */
   .devZoneButtonContainer {
-    bottom: 20px;
-    right: 20px;
-  }
-  
-  .buttonContent {
-    padding: 14px 24px;
-  }
-  
-  .buttonText {
-    font-size: 14px;
-  }
-  
-  .floatingElement {
-    font-size: 10px;
-    padding: 4px 8px;
+    display: none;
   }
 }
 
 @media (max-width: 480px) {
-  .devZoneButtonContainer {
-    bottom: 15px;
-    right: 15px;
+  .mobileMenu {
+    width: 180px;
   }
   
-  .buttonContent {
-    padding: 12px 20px;
+  .mobileMenuToggle.menuOpen {
+    right: 180px;
   }
   
-  .buttonText {
+  .mobileMenuIcon {
+    font-size: 52px;
+  }
+  
+  .mobileMenuText {
     font-size: 13px;
   }
   
-  .arrow {
-    font-size: 16px;
+  .toggleIcon {
+    font-size: 18px;
   }
 }

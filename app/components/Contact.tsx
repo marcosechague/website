@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
+import Image from 'next/image';
 import styles from './Contact.module.css';
 
 interface FormData {
@@ -257,7 +258,15 @@ export default function Contact() {
             </div>
 
             <div className={styles.infoItem}>
-              <div className={styles.infoIcon}>�</div>
+              <div className={styles.infoIcon}>
+                <Image 
+                  src="/icons/linkedIn.svg" 
+                  alt="LinkedIn" 
+                  width={24} 
+                  height={24}
+                  style={{ objectFit: 'contain' }}
+                />
+              </div>
               <div>
                 <h4>LinkedIn</h4>
                 <a 

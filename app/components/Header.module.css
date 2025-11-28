@@ -40,6 +40,38 @@
   color: var(--secondary);
 }
 
+/* Hamburger Menu Button */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1001;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
 .navLinks {
   display: flex;
   gap: 2.5rem;
@@ -108,13 +140,92 @@
   color: var(--primary);
 }
 
+/* Mobile Language Selector */
+.mobileLanguageSelector {
+  display: none;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  gap: 1rem;
+  justify-content: center;
+}
+
+.mobileLangButton {
+  padding: 0.6rem 1.5rem;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+  color: var(--text-secondary);
+  font-family: 'Courier New', monospace;
+}
+
+.mobileLangButton.active {
+  background: var(--primary);
+  color: var(--bg-dark);
+  border-color: var(--primary);
+}
+
+/* Responsive Styles */
 @media (max-width: 968px) {
+  .hamburger {
+    display: flex;
+  }
+
   .navLinks {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: rgba(10, 14, 39, 0.98);
+    backdrop-filter: blur(20px);
+    padding: 2rem;
     gap: 1.5rem;
+    border-bottom: 1px solid var(--border);
+    transform: translateX(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+  }
+
+  .navLinks.mobileMenuOpen {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .navLinks li {
+    text-align: center;
+    width: 100%;
+  }
+
+  .navLinks a {
+    display: block;
+    padding: 0.75rem;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    transition: all 0.3s;
+  }
+
+  .navLinks a:hover {
+    background: var(--bg-card);
+  }
+
+  .mobileLanguageSelector {
+    display: flex;
   }
 
   .languageSelector {
-    top: 80px;
-    right: 1rem;
+    display: none;
+  }
+
+  .nav {
+    padding: 0 1rem;
   }
 }
